@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, Aperture, Mail, Image as ImageIcon } from 'lucide-react';
+import { Camera, Aperture, Mail, Image as ImageIcon, Briefcase, Users, Sparkles } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -69,6 +69,43 @@ export default function Home() {
                 <ImageIcon className="text-zinc-600 group-hover:scale-110 transition-transform duration-500" />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+{/* Services Section */}
+      <section id="services" className="py-24 max-w-6xl mx-auto px-4 border-t border-purple-900/20">
+        <div className="flex flex-col items-center text-center mb-16">
+          <Aperture className="h-8 w-8 text-purple-700 mb-4" />
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-100 mb-4">Our Services</h2>
+          <p className="text-stone-400 max-w-2xl">
+            From raw, emotion-driven portraiture to high-impact commercial branding, we deliver striking visuals tailored to your narrative.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-zinc-900/30 p-8 rounded-sm border border-zinc-800 hover:border-purple-600/50 transition-colors group">
+            <Briefcase className="h-10 w-10 text-purple-700 mb-6 group-hover:scale-110 transition-transform" />
+            <h3 className="text-xl font-bold text-stone-200 mb-3">Commercial & Branding</h3>
+            <p className="text-stone-400 leading-relaxed text-sm">
+              High-contrast, bold imagery designed to elevate your brand identity and make your products stand out in a saturated market.
+            </p>
+          </div>
+          
+          <div className="bg-zinc-900/30 p-8 rounded-sm border border-zinc-800 hover:border-purple-600/50 transition-colors group">
+            <Users className="h-10 w-10 text-purple-700 mb-6 group-hover:scale-110 transition-transform" />
+            <h3 className="text-xl font-bold text-stone-200 mb-3">Event Coverage</h3>
+            <p className="text-stone-400 leading-relaxed text-sm">
+              Documenting weddings and family events with a focus on candid, unseen moments and authentic emotional storytelling.
+            </p>
+          </div>
+          
+          <div className="bg-zinc-900/30 p-8 rounded-sm border border-zinc-800 hover:border-purple-600/50 transition-colors group">
+            <Sparkles className="h-10 w-10 text-purple-700 mb-6 group-hover:scale-110 transition-transform" />
+            <h3 className="text-xl font-bold text-stone-200 mb-3">Creative Portraiture</h3>
+            <p className="text-stone-400 leading-relaxed text-sm">
+              Stylized, striking portraits that capture raw individuality through expert lighting, deep shadows, and bold compositions.
+            </p>
           </div>
         </div>
       </section>
