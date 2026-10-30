@@ -5,13 +5,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-stone-200 font-sans selection:bg-purple-900 selection:text-white">
       {/* Navigation */}
-      <nav className="border-b border-red-900/30 bg-zinc-950/80 backdrop-blur-md fixed w-full top-0 z-50">
+      <nav className="border-b border-purple-900/30 bg-zinc-950/80 backdrop-blur-md fixed w-full top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Aperture className="text-purple-700 h-6 w-6" />
-            <span className="text-xl font-bold tracking-widest uppercase text-stone-100">
-              Rez in Focus
-            </span>
+            <img src='/rezLogo.png' className="text-purple-700 h-32 w-32 object-contain" />
           </div>
           <div className="flex gap-6 text-sm font-medium tracking-wide">
             <a href="#portfolio" className="hover:text-purple-500 transition-colors">Portfolio</a>
@@ -27,19 +24,19 @@ export default function Home() {
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 bg-gradient-to-br from-stone-100 to-stone-500 bg-clip-text text-transparent">
           Capturing the Unseen
         </h1>
-        <p className="text-lg md:text-xl text-stone-400 max-w-2xl mb-10 leading-relaxed border-l-2 border-red-800 pl-4 text-left">
+        <p className="text-lg md:text-xl text-stone-400 max-w-2xl mb-10 leading-relaxed border-l-2 border-purple-800 pl-4 text-left">
           Commercial and creative photography specialized in striking contrasts, bold compositions, and raw visual storytelling.
         </p>
         <a 
           href="#contact" 
-          className="bg-purple-800 hover:bg-purple-700 text-stone-50 px-8 py-3 rounded-sm font-semibold tracking-wide transition-all border border-red-600 shadow-[0_0_15px_rgba(153,27,27,0.3)]"
+          className="bg-purple-800 hover:bg-purple-700 text-stone-50 px-8 py-3 rounded-sm font-semibold tracking-wide transition-all border border-purple-600 shadow-[0_0_15px_rgba(153,27,27,0.3)]"
         >
           Book a Session
         </a>
       </section>
 
       {/* Featured Gallery Grid */}
-      <section id="portfolio" className="py-20 bg-zinc-900/50 border-y border-red-900/20">
+      <section id="portfolio" className="py-20 bg-zinc-900/50 border-y border-purple-900/20">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-bold mb-10 text-stone-100 flex items-center gap-2">
             <ImageIcon className="text-purple-600" />
