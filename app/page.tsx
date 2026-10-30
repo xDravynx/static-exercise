@@ -48,10 +48,7 @@ export default function Home() {
       <nav className="border-b border-purple-900/30 bg-zinc-950/80 backdrop-blur-md fixed w-full top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src='/rezLogo.png' className="text-purple-700 h-10 w-10 object-contain" alt="Rez in Focus Logo" />
-            <span className="text-xl font-bold tracking-widest uppercase text-stone-100 ml-2">
-              Rez in Focus
-            </span>
+            <img src='/rezLogo.png' className="text-purple-700 h-24 w-24 object-contain" alt="Rez in Focus Logo" />
           </div>
           <div className="flex gap-6 text-sm font-medium tracking-wide">
             <a href="#portfolio" className="hover:text-purple-500 transition-colors">Portfolio</a>
@@ -101,10 +98,20 @@ export default function Home() {
                 key={item} 
                 className="aspect-[4/5] bg-zinc-800 rounded-sm border border-zinc-700 hover:border-purple-700/50 transition-colors flex items-center justify-center group relative overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                {/* Specific display logic for your 'Weddings' image */}
+                {item === 'Weddings' ? (
+                  <img 
+                    src="/wedding.png" 
+                    alt="Weddings portfolio piece" 
+                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale opacity-80 group-hover:opacity-100"
+                  />
+                ) : (
+                  <ImageIcon className="text-zinc-600 group-hover:scale-110 transition-transform duration-500" />
+                )}
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6 z-10">
                   <span className="text-stone-200 font-medium tracking-wide">{item}</span>
                 </div>
-                <ImageIcon className="text-zinc-600 group-hover:scale-110 transition-transform duration-500" />
               </div>
             ))}
           </div>
@@ -142,13 +149,13 @@ export default function Home() {
         <p className="text-stone-400 mb-8 max-w-md mx-auto">
           Let's discuss your next commercial shoot or creative project.
         </p>
-        <button 
+        {/* <button 
           onClick={() => handleOpenModal()}
           className="inline-flex items-center gap-2 text-purple-500 hover:text-purple-400 font-medium transition-colors cursor-pointer bg-transparent border-none p-0"
         >
           <Mail className="h-5 w-5" />
           contact@rezinfocus.com
-        </button>
+        </button> */}
       </footer>
 
       {/* Modal Component */}
