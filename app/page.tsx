@@ -3,12 +3,15 @@ import { Camera, Aperture, Mail, Image as ImageIcon } from 'lucide-react';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-stone-200 font-sans selection:bg-purple-900 selection:text-white">
+    <main className="min-h-screen bg-zinc-950 text-stone-200 font-sans selection:bg-purple-900 selection:text-white overflow-hidden">
       {/* Navigation */}
       <nav className="border-b border-purple-900/30 bg-zinc-950/80 backdrop-blur-md fixed w-full top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src='/rezLogo.png' className="text-purple-700 h-32 w-32 object-contain" />
+            <img src='/rezLogo.png' className="text-purple-700 h-10 w-10 object-contain" alt="Rez in Focus Logo" />
+            <span className="text-xl font-bold tracking-widest uppercase text-stone-100 ml-2">
+              Rez in Focus
+            </span>
           </div>
           <div className="flex gap-6 text-sm font-medium tracking-wide">
             <a href="#portfolio" className="hover:text-purple-500 transition-colors">Portfolio</a>
@@ -19,20 +22,32 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 max-w-6xl mx-auto flex flex-col items-center text-center">
-        <Camera className="h-16 w-16 text-purple-700 mb-6 opacity-80" />
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 bg-gradient-to-br from-stone-100 to-stone-500 bg-clip-text text-transparent">
-          Capturing the Unseen
-        </h1>
-        <p className="text-lg md:text-xl text-stone-400 max-w-2xl mb-10 leading-relaxed border-l-2 border-purple-800 pl-4 text-left">
-          Commercial and creative photography specialized in striking contrasts, bold compositions, and raw visual storytelling.
-        </p>
-        <a 
-          href="#contact" 
-          className="bg-purple-800 hover:bg-purple-700 text-stone-50 px-8 py-3 rounded-sm font-semibold tracking-wide transition-all border border-purple-600 shadow-[0_0_15px_rgba(153,27,27,0.3)]"
-        >
-          Book a Session
-        </a>
+      <section className="relative pt-40 pb-32 px-4 max-w-6xl mx-auto flex flex-col text-left justify-center min-h-[80vh]">
+        {/* Giant Background Logo */}
+        <div 
+
+          className="absolute right-[-20%] top-1/2 -translate-y-1/2 w-[800px] h-[800px] md:w-[1000px] md:h-[1000px] bg-no-repeat opacity-10 pointer-events-none z-0"
+          style={{ 
+            backgroundImage: "url('/rezLogo.png')",
+            backgroundSize: "contain",
+            backgroundPosition: "center right"
+          }}
+        />
+
+        <div className="relative z-10 max-w-3xl">
+          <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 bg-gradient-to-br from-stone-100 to-stone-500 bg-clip-text text-transparent">
+            Capturing the <br /> Unseen
+          </h1>
+          <p className="text-lg md:text-xl text-stone-400 max-w-2xl mb-10 leading-relaxed border-l-2 border-purple-800 pl-4">
+            Commercial and creative photography specialized in striking contrasts, bold compositions, and raw visual storytelling.
+          </p>
+          <a 
+            href="#contact" 
+            className="inline-block bg-purple-800 hover:bg-purple-700 text-stone-50 px-8 py-3 rounded-sm font-semibold tracking-wide transition-all border border-purple-600 shadow-[0_0_15px_rgba(153,27,27,0.3)]"
+          >
+            Book a Session
+          </a>
+        </div>
       </section>
 
       {/* Featured Gallery Grid */}
@@ -59,7 +74,7 @@ export default function Home() {
       </section>
 
       {/* Contact Footer */}
-      <footer id="contact" className="py-20 max-w-6xl mx-auto px-4 text-center">
+      <footer id="contact" className="py-20 max-w-6xl mx-auto px-4 text-center relative z-10">
         <h2 className="text-2xl font-bold mb-6 text-stone-100">Ready to Create?</h2>
         <p className="text-stone-400 mb-8 max-w-md mx-auto">
           Let's discuss your next commercial shoot or creative project.
