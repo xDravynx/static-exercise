@@ -1,7 +1,47 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import { Camera, Aperture, Mail, Image as ImageIcon, Briefcase, Users, Sparkles } from 'lucide-react';
+import ServiceCard from './components/ServiceCard'; 
+import ContactModal from './components/ContactModel'; 
+
+interface ServiceData {
+  title: string;
+  description: string;
+  price: string;
+  icon: React.ReactNode;
+}
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+
+  const handleOpenModal = (serviceName?: string) => {
+    setSelectedService(serviceName || null);
+    setIsModalOpen(true);
+  };
+
+  const servicesData: ServiceData[] = [
+    {
+      title: "Commercial & Branding",
+      description: "High-contrast, bold imagery designed to elevate your brand identity and make your products stand out in a saturated market.",
+      price: "$500",
+      icon: <Briefcase className="h-10 w-10 text-purple-700" />
+    },
+    {
+      title: "Event Coverage",
+      description: "Documenting weddings and family events with a focus on candid, unseen moments and authentic emotional storytelling.",
+      price: "$1,200",
+      icon: <Users className="h-10 w-10 text-purple-700" />
+    },
+    {
+      title: "Creative Portraiture",
+      description: "Stylized, striking portraits that capture raw individuality through expert lighting, deep shadows, and bold compositions.",
+      price: "$300",
+      icon: <Sparkles className="h-10 w-10 text-purple-700" />
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-zinc-950 text-stone-200 font-sans selection:bg-purple-900 selection:text-white overflow-hidden">
       {/* Navigation */}
@@ -23,9 +63,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-32 px-4 max-w-6xl mx-auto flex flex-col text-left justify-center min-h-[80vh]">
-        {/* Giant Background Logo */}
         <div 
-
           className="absolute right-[-20%] top-1/2 -translate-y-1/2 w-[800px] h-[800px] md:w-[1000px] md:h-[1000px] bg-no-repeat opacity-10 pointer-events-none z-0"
           style={{ 
             backgroundImage: "url('/rezLogo.png')",
@@ -41,12 +79,12 @@ export default function Home() {
           <p className="text-lg md:text-xl text-stone-400 max-w-2xl mb-10 leading-relaxed border-l-2 border-purple-800 pl-4">
             Commercial and creative photography specialized in striking contrasts, bold compositions, and raw visual storytelling.
           </p>
-          <a 
-            href="#contact" 
+          <button 
+            onClick={() => handleOpenModal()}
             className="inline-block bg-purple-800 hover:bg-purple-700 text-stone-50 px-8 py-3 rounded-sm font-semibold tracking-wide transition-all border border-purple-600 shadow-[0_0_15px_rgba(153,27,27,0.3)]"
           >
             Book a Session
-          </a>
+          </button>
         </div>
       </section>
 
@@ -73,7 +111,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* Services Section */}
+      {/* Services Section */}
       <section id="services" className="py-24 max-w-6xl mx-auto px-4 border-t border-purple-900/20">
         <div className="flex flex-col items-center text-center mb-16">
           <Aperture className="h-8 w-8 text-purple-700 mb-4" />
@@ -83,30 +121,18 @@ export default function Home() {
           </p>
         </div>
 
+        {/* Dynamic Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-zinc-900/30 p-8 rounded-sm border border-zinc-800 hover:border-purple-600/50 transition-colors group">
-            <Briefcase className="h-10 w-10 text-purple-700 mb-6 group-hover:scale-110 transition-transform" />
-            <h3 className="text-xl font-bold text-stone-200 mb-3">Commercial & Branding</h3>
-            <p className="text-stone-400 leading-relaxed text-sm">
-              High-contrast, bold imagery designed to elevate your brand identity and make your products stand out in a saturated market.
-            </p>
-          </div>
-          
-          <div className="bg-zinc-900/30 p-8 rounded-sm border border-zinc-800 hover:border-purple-600/50 transition-colors group">
-            <Users className="h-10 w-10 text-purple-700 mb-6 group-hover:scale-110 transition-transform" />
-            <h3 className="text-xl font-bold text-stone-200 mb-3">Event Coverage</h3>
-            <p className="text-stone-400 leading-relaxed text-sm">
-              Documenting weddings and family events with a focus on candid, unseen moments and authentic emotional storytelling.
-            </p>
-          </div>
-          
-          <div className="bg-zinc-900/30 p-8 rounded-sm border border-zinc-800 hover:border-purple-600/50 transition-colors group">
-            <Sparkles className="h-10 w-10 text-purple-700 mb-6 group-hover:scale-110 transition-transform" />
-            <h3 className="text-xl font-bold text-stone-200 mb-3">Creative Portraiture</h3>
-            <p className="text-stone-400 leading-relaxed text-sm">
-              Stylized, striking portraits that capture raw individuality through expert lighting, deep shadows, and bold compositions.
-            </p>
-          </div>
+          {servicesData.map((service, index) => (
+            <ServiceCard 
+              key={index}
+              title={service.title}
+              description={service.description}
+              price={service.price}
+              icon={service.icon}
+              onBookClick={() => handleOpenModal(service.title)}
+            />
+          ))}
         </div>
       </section>
 
@@ -116,14 +142,21 @@ export default function Home() {
         <p className="text-stone-400 mb-8 max-w-md mx-auto">
           Let's discuss your next commercial shoot or creative project.
         </p>
-        <a 
-          href="mailto:contact@rezinfocus.com" 
-          className="inline-flex items-center gap-2 text-purple-500 hover:text-purple-400 font-medium transition-colors"
+        <button 
+          onClick={() => handleOpenModal()}
+          className="inline-flex items-center gap-2 text-purple-500 hover:text-purple-400 font-medium transition-colors cursor-pointer bg-transparent border-none p-0"
         >
           <Mail className="h-5 w-5" />
           contact@rezinfocus.com
-        </a>
+        </button>
       </footer>
+
+      {/* Modal Component */}
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        serviceName={selectedService}
+      />
     </main>
   );
 }
