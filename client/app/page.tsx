@@ -25,19 +25,19 @@ export default function Home() {
     {
       title: "Commercial & Branding",
       description: "High-contrast, bold imagery designed to elevate your brand identity and make your products stand out in a saturated market.",
-      price: "$500",
+      price: "$250",
       icon: <Briefcase className="h-10 w-10 text-purple-700" />
     },
     {
       title: "Event Coverage",
       description: "Documenting weddings and family events with a focus on candid, unseen moments and authentic emotional storytelling.",
-      price: "$1,200",
+      price: "$600",
       icon: <Users className="h-10 w-10 text-purple-700" />
     },
     {
       title: "Creative Portraiture",
       description: "Stylized, striking portraits that capture raw individuality through expert lighting, deep shadows, and bold compositions.",
-      price: "$300",
+      price: "$150",
       icon: <Sparkles className="h-10 w-10 text-purple-700" />
     }
   ];
