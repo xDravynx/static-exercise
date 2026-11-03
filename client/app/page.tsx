@@ -49,7 +49,7 @@ export default function Home() {
       <nav className="border-b border-purple-900/30 bg-zinc-950/80 backdrop-blur-md fixed w-full top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src='/rezLogo.png' className="text-purple-700 h-24 w-24 object-contain" alt="Rez in Focus Logo" />
+            <Image src='/rezLogo.png' className="text-purple-700 h-24 w-24 object-contain" alt="Rez in Focus Logo" />
           </div>
           <div className="flex gap-6 text-sm font-medium tracking-wide">
             <a href="#portfolio" className="hover:text-purple-500 transition-colors">Portfolio</a>
