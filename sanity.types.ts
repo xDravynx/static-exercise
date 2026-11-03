@@ -217,14 +217,3 @@ export type PROJECTS_QUERY_RESULT = Array<{
     _type: "image";
   } | null;
 }>;
-
-// Query TypeMap
-declare global {
-  interface SanityQueries {
-    '*[_type == "project" && defined(slug.current)] | order(date desc){ _id, title, "slug": slug.current, date, description, coverImage }': PROJECTS_QUERY_RESULT;
-  }
-}
-// Lets @sanity/client releases that predate the global registry read it too
-declare module "@sanity/client" {
-  interface SanityQueries extends globalThis.SanityQueries {}
-}
