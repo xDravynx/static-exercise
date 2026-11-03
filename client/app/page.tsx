@@ -98,11 +98,23 @@ export default function Home() {
                 key={item} 
                 className="aspect-[4/5] bg-zinc-800 rounded-sm border border-zinc-700 hover:border-purple-700/50 transition-colors flex items-center justify-center group relative overflow-hidden"
               >
-                {/* Specific display logic for your 'Weddings' image */}
+                {/* Corrected nested ternary operators */}
                 {item === 'Weddings' ? (
                   <img 
                     src="/wedding.png" 
                     alt="Weddings portfolio piece" 
+                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale opacity-80 group-hover:opacity-100"
+                  />
+                ) : item === 'Family Events' ? (
+                  <img 
+                    src="/family.jpeg" 
+                    alt="family portfolio piece" 
+                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale opacity-80 group-hover:opacity-100"
+                  />
+                ) : item === 'Portraits' ? (
+                  <img 
+                    src="/port.jpeg" 
+                    alt="portfolio piece" 
                     className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale opacity-80 group-hover:opacity-100"
                   />
                 ) : (
@@ -149,13 +161,6 @@ export default function Home() {
         <p className="text-stone-400 mb-8 max-w-md mx-auto">
           Let's discuss your next commercial shoot or creative project.
         </p>
-        {/* <button 
-          onClick={() => handleOpenModal()}
-          className="inline-flex items-center gap-2 text-purple-500 hover:text-purple-400 font-medium transition-colors cursor-pointer bg-transparent border-none p-0"
-        >
-          <Mail className="h-5 w-5" />
-          contact@rezinfocus.com
-        </button> */}
       </footer>
 
       {/* Modal Component */}

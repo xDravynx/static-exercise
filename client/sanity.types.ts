@@ -199,7 +199,7 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | Geopoint;
 
-// Source: ../static-exercise/sanity/queries.ts
+// Source: ../client/sanity/queries.ts
 // Variable: PROJECTS_QUERY
 // Query: *[_type == "project" && defined(slug.current)] | order(date desc){ _id, title, "slug": slug.current, date, description, coverImage }
 export type PROJECTS_QUERY_RESULT = Array<{
