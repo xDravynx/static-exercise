@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Camera, Aperture, Mail, Image as ImageIcon, Briefcase, Users, Sparkles } from 'lucide-react';
 import ServiceCard from './components/ServiceCard'; 
 import ContactModal from './components/ContactModel'; 
+import Image from 'next/image'
 
 interface ServiceData {
   title: string;
@@ -100,19 +101,19 @@ export default function Home() {
               >
                 {/* Corrected nested ternary operators */}
                 {item === 'Weddings' ? (
-                  <img 
+                  <Image 
                     src="/wedding.png" 
                     alt="Weddings portfolio piece" 
                     className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale opacity-80 group-hover:opacity-100"
                   />
                 ) : item === 'Family Events' ? (
-                  <img 
+                  <Image 
                     src="/family.jpeg" 
                     alt="family portfolio piece" 
                     className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale opacity-80 group-hover:opacity-100"
                   />
                 ) : item === 'Portraits' ? (
-                  <img 
+                  <Image 
                     src="/port.jpeg" 
                     alt="portfolio piece" 
                     className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale opacity-80 group-hover:opacity-100"
