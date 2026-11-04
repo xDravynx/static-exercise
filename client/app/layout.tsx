@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rez In Focus",
-  description: "website built by xDravynx",
+  title: "Rez in Focus | Commercial & Creative Photography",
+  description: "Commercial and creative photography specialized in striking contrasts, bold compositions, and raw visual storytelling.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
