@@ -51,7 +51,7 @@ export default function Home() {
     {
       title: "Minis",
       description: "Short and sweet sessions perfect for quick family updates, couples, or seasonal portraits. Fast-paced and beautifully curated.",
-      price: "$75",
+      price: "$25",
       icon: <Camera className="h-10 w-10 text-purple-700 mb-6 group-hover:scale-110 group-hover:text-purple-500 transition-all duration-300" />
     }
   ];
